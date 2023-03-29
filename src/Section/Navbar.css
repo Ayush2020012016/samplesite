@@ -1,0 +1,50 @@
+.navContainer {
+    padding: 24px 0;
+    background-color: #2c3e50;
+}
+
+.navBar {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-size: 1.75em;
+    font-weight: 800;
+    color: #ffff;
+}
+
+.navBar a {
+    color: white;
+}
+
+.navTitle {
+    padding: 5px;
+    margin-block: auto;
+}
+
+.navItems {
+    display: flex;
+}
+
+.navItems>li {
+    padding: 16px;
+    font-size: 1em;
+}
+
+.navItems a {
+    transition: color .5s;
+}
+
+.navItems>li:not(.active):hover a {
+    /* learn to use not  */
+    color: #1abc9c;
+}
+
+
+
+
+.active {
+    background-color: #1abc9c;
+    color: white !important;
+}
