@@ -21,7 +21,7 @@ const Navbar = () => {
     <div id="id" className="navContainer">
       <div className="navBar">
         <div className="navTitle">
-          <a href="/">START BOO TSTRAP</a>
+          <a href="/">START BOO T STRAP</a>
         </div>
         {/* <Button buttonText={"Menu"} /> */}
         <div className="navItems">
