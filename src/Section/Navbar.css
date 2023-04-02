@@ -21,6 +21,7 @@
 .navTitle {
     padding: 5px;
     margin-block: auto;
+    white-space: nowrap;
 }
 
 .navItems {
@@ -30,6 +31,7 @@
 .navItems>li {
     padding: 16px;
     font-size: 1em;
+    border-radius: 20px;
 }
 
 .navItems a {
@@ -41,10 +43,24 @@
     color: #1abc9c;
 }
 
-
-
-
 .active {
     background-color: #1abc9c;
-    color: white !important;
+    color: white;
+}
+@media (max-width:1024px) {
+    .navItems {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:768px) {
+    .navBar {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:640px) {
+    .navItems {
+        flex-direction: column;
+    }
 }

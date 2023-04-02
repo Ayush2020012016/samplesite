@@ -6,7 +6,7 @@ import "./Navbar.css";
 const user = [
   {
     id: 1,
-    name: "portfolio",
+    name: "Portfolio",
   },
   {
     id: 2,
@@ -55,7 +55,7 @@ const Li = (props) => {
         }}
         className={props.state ? "active" : null}
       >
-        {props.name}
+        <a href={"#" + props.id}>{props.name}</a>
       </li>
     </>
   );
