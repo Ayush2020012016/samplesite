@@ -2,29 +2,23 @@ import React, { useState } from "react";
 import Button from "../Components/Button";
 import "./Navbar.css";
 
+
+const user = [
+  {
+    id: 1,
+    name: "portfolio",
+  },
+  {
+    id: 2,
+    name: "About",
+  },
+  {
+    id: 3,
+    name: "Contact",
+  },
+];
 const Navbar = () => {
-  const [activeState, setactiveState] = useState([0, 0, 0]);
-  const handleClick = (e) => {
-    const target = e.target.tagName;
-    let targetValue = "";
-    if (target == "LI") {
-      targetValue = e.target.value;
-    }
-    if (target == "A") {
-      console.log(e.target.parentNode);
-      targetValue = e.target.parentNode.value;
-    }
-
-    const updatedArray = activeState.map((current, index) => {
-      console.log(current, index);
-      if (index === targetValue) {
-        return !current;
-      }
-      return 0;
-    });
-
-    setactiveState(updatedArray);
-  };
+  const [activeState, setactiveState] = useState(1);
 
   return (
     <div id="id" className="navContainer">
@@ -34,33 +28,16 @@ const Navbar = () => {
         </div>
         {/* <Button buttonText={"Menu"} /> */}
         <div className="navItems">
-          <li
-            value={0}
-            className={activeState[0] ? "active" : ""}
-            onClick={(e) => handleClick(e)}
-          >
-            <a value={0} href="#firstsection">
-              Portfolio
-            </a>
-          </li>
-          <li
-            value={1}
-            className={activeState[1] ? "active" : ""}
-            onClick={(e) => handleClick(e)}
-          >
-            <a value={1} href="#secondsection">
-              About
-            </a>
-          </li>
-          <li
-            value={2}
-            className={activeState[2] ? "active" : ""}
-            onClick={(e) => handleClick(e)}
-          >
-            <a value={2} href="#thirdsection">
-              Contact
-            </a>
-          </li>
+          {user.map((value) => {
+            return (
+              <Li
+                name={value.name}
+                state={activeState === value.id}
+                id={value.id}
+                setactiveState={setactiveState}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
@@ -69,5 +46,19 @@ const Navbar = () => {
 
 export default Navbar;
 
+const Li = (props) => {
+  return (
+    <>
+      <li
+        onClick={() => {
+          props.setactiveState(props.id);
+        }}
+        className={props.state ? "active" : null}
+      >
+        {props.name}
+      </li>
+    </>
+  );
+};
 //first I am using foreach on nodelist but it is giving and error
 //so I tried it with for loop that it works but than accessing classlist for each node is giving and error.
